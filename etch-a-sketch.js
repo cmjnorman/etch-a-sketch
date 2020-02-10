@@ -1,6 +1,6 @@
 function createGrid(size) {
     let grid = document.getElementById("grid");
-    let cellSize = 1000 / size;
+    let cellSize = 800 / size;
     for(i=0; i<size; i++) {
         let row = document.createElement("div");
         row.className = "row";
@@ -22,7 +22,6 @@ function createCell(cellSize) {
     cell.style.opacity = "0";
     cell.addEventListener("mouseover", function() {
         this.style.opacity = (this.style.opacity == 1) ? 1 : parseFloat(this.style.opacity) + 0.1;
-        console.log(this.style.opacity);
     });
     return cell;
 }
@@ -30,7 +29,7 @@ function createCell(cellSize) {
 let reset = document.getElementById("reset");
 reset.addEventListener("click", function() {
     document.getElementById("grid").innerHTML = "";
-    createGrid(parseInt(document.getElementById("gridSize").value));
+    createGrid(parseInt(document.getElementById("gridSizeInput").value));
 });
 
-createGrid(parseInt(document.getElementById("gridSize").value))
+createGrid(parseInt(document.getElementById("gridSizeInput").value))
