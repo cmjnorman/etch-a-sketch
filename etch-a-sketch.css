@@ -4,14 +4,8 @@
 
 .cell {
     display: inline-block;
-    width: 60px;
-    height: 60px;
 }
 
 .activeCell {
     background-color: black;
-}
-
-.row {
-    height: 60px;
 }
