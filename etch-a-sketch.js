@@ -6,23 +6,31 @@ function createGrid(size) {
         row.className = "row";
         row.style.height = cellSize + "px";
         for(j=0; j<size; j++) {
-            let cell = document.createElement("div");
-            cell.className = "cell";
-            cell.style.height = cellSize + "px";
-            cell.style.width = cellSize + "px";
-            cell.addEventListener("mouseover", function() {
-                this.classList.add("activeCell");
-            });
+            let cell = createCell(cellSize);
             row.appendChild(cell);
         }
         grid.appendChild(row);
     }
 } 
 
+function createCell(cellSize) {
+    let cell = document.createElement("div");
+    cell.className = "cell";
+    cell.style.height = cellSize + "px";
+    cell.style.width = cellSize + "px";
+    cell.style.backgroundColor = "black";
+    cell.style.opacity = "0";
+    cell.addEventListener("mouseover", function() {
+        this.style.opacity = (this.style.opacity == 1) ? 1 : parseFloat(this.style.opacity) + 0.1;
+        console.log(this.style.opacity);
+    });
+    return cell;
+}
+
 let reset = document.getElementById("reset");
 reset.addEventListener("click", function() {
     document.getElementById("grid").innerHTML = "";
-    createGrid(prompt("How many cells?"));
+    createGrid(parseInt(document.getElementById("gridSize").value));
 });
 
-createGrid(16)
+createGrid(parseInt(document.getElementById("gridSize").value))

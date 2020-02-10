@@ -1,11 +1,20 @@
+#controls {
+    display: inline;
+}
+
+#gridSize {
+    width: 50px;
+}
+
 #grid {
+    height: 1000px;
+    width: 1000px;
     margin-top: 8px;
+    border: 1px solid black;
 }
 
 .cell {
     display: inline-block;
 }
 
-.activeCell {
-    background-color: black;
-}
+
